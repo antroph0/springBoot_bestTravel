@@ -83,7 +83,7 @@ public class BestTravelApplication implements CommandLineRunner {
 		System.out.println("Su reservacion corresponde al hotel: " + hotel);*/
 
 		// Valores necesarios para crear un tour en la base de datos
-		var customer = customerRepository.findById("GOTW771012HMRGR087").orElseThrow();
+		/*var customer = customerRepository.findById("GOTW771012HMRGR087").orElseThrow();
 		log.info("Client name: " + customer.getFullName());
 
 		var fly = flyRepository.findById(11L).orElseThrow();
@@ -99,8 +99,8 @@ public class BestTravelApplication implements CommandLineRunner {
 		var ticket = TicketEntity.builder()
 				.id(UUID.randomUUID())
 				.price(fly.getPrice().multiply(BigDecimal.TEN))
-				.arrivalDate(LocalDate.now())
-				.departureDate(LocalDate.now())
+				.arrivalDate(LocalDateTime.now())
+				.departureDate(LocalDateTime.now())
 				.purchaseDate(LocalDate.now())
 				.customer(customer)
 				.tour(tour)
@@ -119,5 +119,14 @@ public class BestTravelApplication implements CommandLineRunner {
 				.price(hotel.getPrice().multiply(BigDecimal.TEN))
 				.build();
 
+		tour.addReservation(reservation);
+		tour.updateReservation();
+
+		tour.addTicket(ticket);
+		tour.updateTickets();
+
+		var toursaved = this.tourRepository.save(tour);
+		Thread.sleep(15000);
+		this.tourRepository.deleteById(toursaved.getId());*/
 	}
 }
