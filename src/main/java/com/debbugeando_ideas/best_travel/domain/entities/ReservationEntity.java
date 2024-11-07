@@ -28,7 +28,7 @@ public class ReservationEntity implements Serializable {
     private Integer totalDays;
     private BigDecimal price;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "hotel_id")
     private HotelEntity hotel;
 

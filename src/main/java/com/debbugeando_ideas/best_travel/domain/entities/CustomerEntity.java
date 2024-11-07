@@ -43,7 +43,7 @@ public class CustomerEntity implements Serializable {
             orphanRemoval = true,
             mappedBy = "customer"
     )
-    private Set<ReservationEntity> reservation;
+    private Set<ReservationEntity> reservations;
 
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
@@ -53,6 +53,6 @@ public class CustomerEntity implements Serializable {
             orphanRemoval = true,
             mappedBy = "customer"
     )
-    private Set<TourEntity> tour;
+    private Set<TourEntity> tours;
 
 }
